@@ -1,25 +1,13 @@
-package com.NaanMudhalvan.CustomerOrder.models;
+package com.NaanMudhalvan.CustomerOrder.DTO;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
-@Entity
-@NoArgsConstructor @AllArgsConstructor
-@Table(name = "customer_order")
-public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OrderDTO {
     private Long id;
-
     private String productName;
     private int quantity;
     private double price;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    @JsonBackReference
-    private com.NaanMudhalvan.CustomerOrder.models.Customer customer;
+    private Long customerId;
 
     public Long getId() {
         return id;
@@ -53,11 +41,11 @@ public class Order {
         this.price = price;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 }
