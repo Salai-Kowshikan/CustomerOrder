@@ -19,5 +19,5 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     @JsonBackReference
-    private com.ecom.customerorder.model.Customer customer;
+    private com.NaanMudhalvan.CustomerOrder.models.Customer customer;
 }
